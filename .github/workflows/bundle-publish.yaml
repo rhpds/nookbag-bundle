@@ -1,0 +1,38 @@
+---
+name: bundle-publish
+on:
+  push:
+    branches-ignore:
+    - '*'
+    tags:
+    - 'v[0-9]*'
+jobs:
+  build:
+    name: "Build"
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ["ubuntu-latest"]
+        node: ["14"]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+          cache: "npm"
+          cache-dependency-path: ./package-lock.json
+      - name: Install npm@8
+        working-directory: ./
+        run: npm i -g npm@8
+      - name: Install packages
+        working-directory: ./
+        run: npm ci --prefer-offline
+      - name: Build
+        working-directory: ./
+        run: npx gulp build
+        shell: bash
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: public
