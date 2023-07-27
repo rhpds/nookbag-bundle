@@ -6,7 +6,7 @@
   background: #151515;
   color: #fff;
   align-items: center;
-  box-shadow: 0 1px 0 #e1e1e1;
+  box-shadow: none;
   display: flex;
   font-size: 0.75rem;
   height: var(--toolbar-height);

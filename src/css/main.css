@@ -38,5 +38,5 @@
   flex: auto;
   /* min-width: 0 required for flexbox to constrain overflowing elements */
   min-width: 0;
-  border: 1px solid #6A6E73;
+  border: 0;
 }
