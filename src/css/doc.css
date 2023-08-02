@@ -4,9 +4,11 @@
   padding: 0 1rem 4rem;
   color: var(--color-brand-black);
 }
+
 .doc .content {
   color: #000;
 }
+
 @media screen and (min-width: 1024px) {
   .doc {
     margin: 0 2rem;
@@ -263,7 +265,7 @@
 }
 
 .doc > h1 {
-  font-size: 2rem;
+  font-size: 1.45rem;
   margin: 2rem 0 1.5rem;
 }
 
