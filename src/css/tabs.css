@@ -37,14 +37,19 @@
 
 .tabset.is-loading .tabs li:not(:first-child),
 .tabset:not(.is-loading) .tabs li:not(.is-active) {
-  background-color: #151515;
-  color: #fff;
+  background-color: var(--color-brand-white);
+  content: "";
+  display: block;
+  height: 3px; /* Chrome doesn't always paint the line accurately, so add a little extra */
+  position: absolute;
+  bottom: -1.5px;
+  left: 0;
+  right: 0;
 }
 
 .tabset > .content {
   border: 1px solid var(--color-brand-gray);
   padding: 1.25rem;
-  background-color: #fff;
 }
 
 .tabset.is-loading .tab-pane:not(:first-child),

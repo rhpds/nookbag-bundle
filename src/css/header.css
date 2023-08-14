@@ -177,7 +177,7 @@ body {
   }
 
   .navbar-menu {
-    background-color: #151515;
+    background-color: #fff;
     padding: 0.5rem 0;
   }
 
@@ -190,7 +190,7 @@ body {
 
   .navbar-menu a.navbar-item:hover,
   .navbar-menu .navbar-link:hover {
-    background-color: #151515;
+    background-color: #fafafa;
   }
 }
 
@@ -245,7 +245,7 @@ body {
   }
 
   .navbar-dropdown {
-    background-color: #151515;
+    background-color: #fff;
     border: 1px solid #6a6e73;
     display: none;
     font-size: 0.875rem;
@@ -270,18 +270,18 @@ body {
   }
 
   .navbar-dropdown a.navbar-item:hover {
-    background-color: #151515;
+    background-color: #fafafa;
   }
 }
 
 .navbar .button {
   display: inline-flex;
   align-items: center;
-  background-color: #151515;
+  background-color: #fff;
   border: 1px solid #6a6e73;
   border-radius: 0.15rem;
   height: 1.75rem;
-  color: #fff;
+  color: #333;
   padding: 0 0.75em;
   white-space: nowrap;
 }
