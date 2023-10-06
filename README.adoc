@@ -7,8 +7,3 @@ ui:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
     snapshot: true
 ----
-
-
-== Authors
-
-Development of Antora is led and sponsored by {url-opendevise}[OpenDevise Inc].
