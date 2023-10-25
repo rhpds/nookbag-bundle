@@ -6,7 +6,6 @@
   var TRAILING_SPACE_RX = / +$/gm
 
   var config = (document.getElementById('site-script') || { dataset: {} }).dataset
-  var uiRootPath = config.uiRootPath == null ? '.' : config.uiRootPath
   var svgAs = config.svgAs
   var supportsCopy = window.navigator.clipboard
 
@@ -39,12 +38,12 @@
         var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
         svg.setAttribute('class', 'copy-icon')
         var use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
-        use.setAttribute('href', uiRootPath + '/img/octicons-16.svg#icon-clippy')
+        use.setAttribute('href', '../_/img/octicons-16.svg#icon-clippy')
         svg.appendChild(use)
         copy.appendChild(svg)
       } else {
         var img = document.createElement('img')
-        img.src = uiRootPath + '/img/octicons-16.svg#view-clippy'
+        img.src = '../_/img/octicons-16.svg#view-clippy'
         img.alt = 'copy icon'
         img.className = 'copy-icon'
         copy.appendChild(img)
