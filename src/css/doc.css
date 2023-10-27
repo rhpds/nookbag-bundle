@@ -585,13 +585,13 @@ kbd,
   line-height: inherit;
   width: 1em;
   height: 1em;
+  cursor: pointer;
 }
 
 .doc .source-toolbox .copy-icon {
   flex: none;
   width: inherit;
   height: inherit;
-  cursor: pointer;
 }
 
 .doc .source-toolbox img.copy-icon {
