@@ -203,6 +203,7 @@
   border-radius: 0.45rem;
   color: #fff;
   transform: translate(-0.5rem, -50%);
+  z-index: 9;
 }
 
 .doc .admonitionblock.caution .icon {
@@ -229,6 +230,10 @@
   display: inline-flex;
   align-items: center;
   height: 100%;
+  /* stylelint-disable */
+  font-family: 'RedHatDisplay';
+  /* stylelint-enable */
+  font-weight: 500;
 }
 
 .doc .admonitionblock .icon i::after {
