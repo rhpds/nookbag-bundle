@@ -51,7 +51,11 @@ const formatTask = task({
 const buildTask = task({
   name: 'build',
   desc: 'Build and stage the UI assets for bundling',
-  call: build(srcDir, destDir, tree().nodes.some((name) => ~name.indexOf('preview'))),
+  call: build(
+    srcDir,
+    destDir,
+    tree().nodes.some((name) => ~name.indexOf('preview'))
+  ),
 })
 
 const bundleBuildTask = task({
