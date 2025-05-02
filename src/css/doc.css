@@ -577,7 +577,13 @@ kbd,
   padding: 0 1ch;
 }
 
-.doc .source-toolbox .copy-button {
+.doc .source-toolbox .copy-button::after {
+  position: absolute;
+  right: 15px;
+}
+
+.doc .source-toolbox .copy-button,
+.doc .source-toolbox .paste-button {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -591,23 +597,32 @@ kbd,
   width: 1em;
   height: 1em;
   cursor: pointer;
+  margin-right: 10px;
 }
 
-.doc .source-toolbox .copy-icon {
+.doc .source-toolbox .paste-button {
+  margin: 0 4px;
+}
+
+.doc .source-toolbox .copy-icon,
+.doc .source-toolbox .paste-icon {
   flex: none;
   width: inherit;
   height: inherit;
 }
 
-.doc .source-toolbox img.copy-icon {
+.doc .source-toolbox img.copy-icon,
+.doc .source-toolbox img.paste-icon {
   filter: invert(50.2%);
 }
 
-.doc .source-toolbox svg.copy-icon {
+.doc .source-toolbox svg.copy-icon,
+.doc .source-toolbox svg.paste-icon {
   fill: currentColor;
 }
 
-.doc .source-toolbox .copy-toast {
+.doc .source-toolbox .copy-toast,
+.doc .source-toolbox .paste-toast {
   flex: none;
   position: relative;
   display: inline-flex;
@@ -622,7 +637,8 @@ kbd,
   transition: opacity 0.5s ease 0.5s;
 }
 
-.doc .source-toolbox .copy-toast::after {
+.doc .source-toolbox .copy-toast::after,
+.doc .source-toolbox .paste-toast::after {
   content: "";
   position: absolute;
   top: 0;
@@ -634,7 +650,8 @@ kbd,
   transform-origin: left;
 }
 
-.doc .source-toolbox .copy-button.clicked .copy-toast {
+.doc .source-toolbox .copy-button.clicked .copy-toast,
+.doc .source-toolbox .paste-button.clicked .paste-toast {
   opacity: 1;
   transition: none;
 }
