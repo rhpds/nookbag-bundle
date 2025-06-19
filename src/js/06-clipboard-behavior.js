@@ -97,7 +97,7 @@
     }
 
     try {
-      var iframe = window.parent.document.getElementById('main-content')
+      var iframe = window.parent.document.querySelector('.tabcontent.active .main-content')
       if (!iframe || !iframe.contentDocument) throw new Error('Terminal iframe not accessible.')
       var textArea = iframe.contentDocument.getElementsByTagName('textarea')[0]
       if (!textArea) throw new Error('Textarea not found in terminal iframe.')
