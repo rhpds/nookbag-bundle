@@ -5,6 +5,11 @@
   margin-right: auto;
   margin-left: auto;
 }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
 @media (min-width: 576px) {
   .container {
