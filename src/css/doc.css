@@ -549,7 +549,6 @@ kbd,
 
 .doc .source-toolbox {
   display: flex;
-  visibility: hidden;
   position: absolute;
   top: 0.25rem;
   right: 0.5rem;
