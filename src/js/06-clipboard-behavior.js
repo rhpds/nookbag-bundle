@@ -49,7 +49,7 @@
       copy.addEventListener('click', writeToClipboard.bind(copy, code))
     }
 
-    if (supportsCopy) {
+    if (supportsCopy && language === 'bash') {
       ;(paste = document.createElement('button')).className = 'paste-button'
       paste.setAttribute('title', 'Run into terminal')
 
