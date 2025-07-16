@@ -47,6 +47,9 @@
     })
     lightboxClose.addEventListener('click', closeLightbox)
     document.addEventListener('keydown', handleKeydown)
+
+    // Use event delegation to handle image clicks (works with dynamically added images)
+    document.addEventListener('click', handleImageClick)
   }
 
   function collectImages () {
@@ -54,9 +57,9 @@
     var imageElements = document.querySelectorAll('.doc img, .article img, img')
     images = []
 
-    imageElements.forEach(function (img, index) {
+    imageElements.forEach(function (img) {
       // Skip small images (likely icons)
-      if (img.naturalWidth < 100 || img.naturalHeight < 100) return
+      if (img.naturalWidth < 50 || img.naturalHeight < 50) return
 
       // Skip images with specific classes that shouldn't be lightboxed
       if (img.classList.contains('no-lightbox') ||
@@ -65,10 +68,35 @@
 
       images.push(img)
       img.style.cursor = 'pointer'
-      img.addEventListener('click', function () {
-        openLightbox(index)
-      })
     })
+
+    return images
+  }
+
+  function handleImageClick (e) {
+    var target = e.target
+
+    // Check if the clicked element is an image
+    if (target.tagName !== 'IMG') return
+
+    // Skip images with specific classes that shouldn't be lightboxed
+    if (target.classList.contains('no-lightbox') ||
+        target.classList.contains('copy-icon') ||
+        target.classList.contains('paste-icon')) return
+
+    // Skip small images (likely icons) - only check if image is loaded
+    if (target.complete && target.naturalWidth > 0 && target.naturalHeight > 0 &&
+        (target.naturalWidth < 50 || target.naturalHeight < 50)) return
+
+    // Refresh the image collection to include any newly added images
+    collectImages()
+
+    // Find the index of the clicked image in the current collection
+    var imageIndex = images.indexOf(target)
+    if (imageIndex !== -1) {
+      e.preventDefault()
+      openLightbox(imageIndex)
+    }
   }
 
   function openLightbox (imageIndex) {
