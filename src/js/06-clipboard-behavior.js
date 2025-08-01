@@ -13,6 +13,10 @@
     if (pre.classList.contains('highlight')) {
       code = pre.querySelector('code')
       if ((language = code.dataset.lang) && language !== 'console') {
+        // Skip adding copy functionality for nocopy blocks
+        if (language === 'nocopy') {
+          return
+        }
         ;(lang = document.createElement('span')).className = 'source-lang'
         lang.appendChild(document.createTextNode(language))
       }
