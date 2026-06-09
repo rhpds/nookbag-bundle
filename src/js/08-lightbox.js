@@ -1,11 +1,11 @@
 ;(function () {
   'use strict'
 
-  var lightboxOverlay
-  var lightboxImage
-  var lightboxClose
-  var currentImageIndex = 0
-  var images = []
+  let lightboxOverlay
+  let lightboxImage
+  let lightboxClose
+  let currentImageIndex = 0
+  let images = []
 
   function initLightbox () {
     // Create lightbox overlay
@@ -16,7 +16,7 @@
       'justify-content: center; align-items: center; cursor: pointer;'
 
     // Create lightbox container
-    var lightboxContainer = document.createElement('div')
+    const lightboxContainer = document.createElement('div')
     lightboxContainer.className = 'lightbox-container'
     lightboxContainer.style.cssText = 'position: relative; max-width: 90%; max-height: 90%; cursor: default;'
 
@@ -54,7 +54,7 @@
 
   function collectImages () {
     // Find all images in the document content area
-    var imageElements = document.querySelectorAll('.doc img, .article img, img')
+    const imageElements = document.querySelectorAll('.doc img, .article img, img')
     images = []
 
     imageElements.forEach(function (img) {
@@ -74,7 +74,7 @@
   }
 
   function handleImageClick (e) {
-    var target = e.target
+    const target = e.target
 
     // Check if the clicked element is an image
     if (target.tagName !== 'IMG') return
@@ -92,7 +92,7 @@
     collectImages()
 
     // Find the index of the clicked image in the current collection
-    var imageIndex = images.indexOf(target)
+    const imageIndex = images.indexOf(target)
     if (imageIndex !== -1) {
       e.preventDefault()
       openLightbox(imageIndex)
@@ -101,7 +101,7 @@
 
   function openLightbox (imageIndex) {
     currentImageIndex = imageIndex
-    var targetImage = images[currentImageIndex]
+    const targetImage = images[currentImageIndex]
 
     if (!targetImage) return
 

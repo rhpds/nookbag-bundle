@@ -8,7 +8,7 @@
   var supportsCopy = window.navigator.clipboard
 
   ;[].slice.call(document.querySelectorAll('.doc pre.highlight, .doc .literalblock pre')).forEach(function (pre) {
-    var code, language, lang, copy, paste, toast, pasteToast, toolbox
+    let code, language, lang, copy, paste, toast, pasteToast, toolbox
 
     if (pre.classList.contains('highlight')) {
       code = pre.querySelector('code')
@@ -54,16 +54,18 @@
     }
 
     if (supportsCopy && language === 'bash') {
-      ;(paste = document.createElement('button')).className = 'paste-button'
+      paste = document.createElement('button')
+      paste.className = 'paste-button'
       paste.setAttribute('title', 'Run into terminal')
 
-      var img2 = document.createElement('img')
+      const img2 = document.createElement('img')
       img2.src = '../_/img/paste.svg'
       img2.alt = 'copy icon'
       img2.className = 'paste-icon'
       paste.appendChild(img2)
 
-      ;(pasteToast = document.createElement('span')).className = 'paste-toast'
+      pasteToast = document.createElement('span')
+      pasteToast.className = 'paste-toast'
       pasteToast.appendChild(document.createTextNode('Executed!'))
       paste.appendChild(pasteToast)
       toolbox.appendChild(paste)
@@ -95,20 +97,20 @@
   }
 
   function pasteToTerminal (code) {
-    var text = code.innerText.replace(TRAILING_SPACE_RX, '')
+    let text = code.innerText.replace(TRAILING_SPACE_RX, '')
     if (code.dataset.lang === 'console' && text.startsWith('$ ')) {
       text = extractCommands(text)
     }
 
     try {
-      var iframe = window.parent.document.querySelector('.tabcontent.active .main-content')
-      if (!iframe || !iframe.contentDocument) throw new Error('Terminal iframe not accessible.')
-      var textArea = iframe.contentDocument.getElementsByTagName('textarea')[0]
+      const iframe = window.parent.document.querySelector('.tabcontent.active .main-content')
+      if (!iframe?.contentDocument) throw new Error('Terminal iframe not accessible.')
+      const textArea = iframe.contentDocument.getElementsByTagName('textarea')[0]
       if (!textArea) throw new Error('Textarea not found in terminal iframe.')
 
       textArea.focus()
       // eslint-disable-next-line no-undef
-      var inputEvent = new InputEvent('input', {
+      const inputEvent = new InputEvent('input', {
         bubbles: true,
         cancelable: true,
         data: text,
@@ -117,7 +119,7 @@
 
       textArea.dispatchEvent(inputEvent)
       // eslint-disable-next-line no-undef
-      var event = new KeyboardEvent('keydown',
+      const event = new KeyboardEvent('keydown',
         { bubbles: true, cancelable: true, key: 'Enter', code: 'Enter', which: 13, keyCode: 13 })
       textArea.dispatchEvent(event)
       this.classList.add('clicked')
